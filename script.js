@@ -1,18 +1,30 @@
-//Display the current date and time in the header
-var today = dayjs();
-$('#currentDay').text(today.format('dddd, MMMM D, YYYY [at] h:mm A'));
+//Display the current date and time in the header (find ex.in classwork)
+var displayToday = $("#currentDay");
+function showTimeDay() {
+let currentTime = dayjs().format('dddd, MMMM D, YYYY [at] h:mm:ss A');
+displayToday.text(currentTime);
+};
+// Call the function and update the seconds
+showTimeDay();
+setInterval(showTimeDay, 1000);
+console.log(displayToday);
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var InputEl = $('hour-8');
+// var InputEl = $('hour-8');
 
 //TODO Click the save button to save workText to local storage
-
 //Select all elements with saveBtn class and create click event listener
-$('.saveBtn').on('click', function (e) {
+//Click listener example found in classwork 05-04
+//! See #1 in Credits for the reference I used to traverse using siblings.
+
+$('.saveBtn').on('click', function () {
+  console.log(this);
   let description = $(this).siblings(".description").val();
-}
+  console.log(description);
+  //Now that I have the description - I need to save it to local storage and have it stay even after a page is refreshed.
+});
 
 
 
