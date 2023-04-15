@@ -9,6 +9,17 @@ showTimeDay();
 setInterval(showTimeDay, 1000);
 console.log(displayToday);
 
+// Check to see if there are already entries for time-slots in local storage and then getItem to populate my planner when the page is refreshed
+//! See #4 in credits for the reference I used to find()
+
+$('.time-block').each(function () {
+let timeSlotEntryHour = $(this).attr('id');
+let timeSlotEntryText = localStorage.getItem(timeSlotEntryHour);
+  if (timeSlotEntryText !== null) {
+    $(this).find('.description').val(timeSlotEntryText);
+  }
+});
+
 //TODO Click the save button to save workText to local storage
 //Select all elements with saveBtn class and create click event listener
 //Click listener example found in classwork 05-04
@@ -48,7 +59,6 @@ $('.time-block').each(function () {
   }
 });
 
-//TODO Need to write code to check if there is anything in local storage and display it in the correct spot, so that if you refresh the page, you will not lose your current entries.  use getItem
 
 
 
