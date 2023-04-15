@@ -13,11 +13,11 @@ This planner can be used to save a description to each hour of the day so the us
 
 ## Usage
 
-To use this site, simply click on a time-slot, type out whatever you need to remember in the text area, and click the save-icon to save your text.
+To use this Day Planner, simply click on a time-slot, type out whatever you need to remember in the text area, and click the save-icon to save your text.
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+    
+    ![Planner Screenshot](assets/Images/Screenshot-1.png)
+
 
 ## Credits
 
@@ -25,7 +25,9 @@ To use this site, simply click on a time-slot, type out whatever you need to rem
 
 2. I found how to get just the hour from dayJS using their docs.  Here is the link to the page I found it referenced: https://day.js.org/docs/en/get-set/hour 
 
-3. I got help removing the number from the time-block ID field by reading the answers to a similar problem on Stack Overflow.  One answer from user 'calebds' suggested using split() to split the ID string into two parts, and another answer from user 'Corey Danielson' suggested using parseInt to isolate a number.  I found that combining these two suggestions would let me split my ID field and then isolate the number value.  Here is a link to the page I referenced: https://stackoverflow.com/questions/9282935/jquery-get-numbers-from-a-string 
+3. I got help removing the number from the time-block ID field by reading the answers to a similar problem on Stack Overflow.  One answer from user 'calebds' suggested using split() to split the ID string into two parts, and another answer from user 'Corey Danielson' suggested using parseInt() to isolate a number.  I found that combining these two suggestions would let me split my ID field and then isolate the number value.  Here is a link to the page I referenced: https://stackoverflow.com/questions/9282935/jquery-get-numbers-from-a-string 
+
+4. I was searching for a way to find a value in local storage using JQUERY and was directed to a w3schools.com page showing how to use the find() method, which I ended up using.  Here is a link to that page: https://www.w3schools.com/jquery/traversing_find.asp 
 
 
 ## License
