@@ -13,6 +13,8 @@ This planner can be used to save a description to each hour of the day so the us
 
 ## Usage
 
+Here is a link to the deployed site: https://kevincallaghan.github.io/Plan-Your-Day/ 
+
 To use this Day Planner, simply click on a time-slot, type out whatever you need to remember in the text area, and click the save-icon to save your text.
 
     
