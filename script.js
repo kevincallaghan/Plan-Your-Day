@@ -9,44 +9,47 @@ showTimeDay();
 setInterval(showTimeDay, 1000);
 console.log(displayToday);
 
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-// var InputEl = $('hour-8');
-
 //TODO Click the save button to save workText to local storage
 //Select all elements with saveBtn class and create click event listener
 //Click listener example found in classwork 05-04
-//! See #1 in Credits for the reference I used to traverse using siblings.
+//! See #1 in Credits for the reference I used to traverse using siblings and parents.
 
 $('.saveBtn').on('click', function () {
   console.log(this);
   let description = $(this).siblings(".description").val();
-  console.log(description);
+  console.log(description);   //check to see if it works
   //Now that I have the description - I need to save it to local storage and have it stay even after a page is refreshed.
+  let selectedTime = $(this).parent().attr('id');
+  console.log(selectedTime, description);   //check to see if it works
+  localStorage.setItem(selectedTime, description);
 });
 
+//TODO Need to write code to get the number out of the ID field and use that to compare against the current time
+//TODO Need to write code to add the correct class to that time-slot.  
+// Use .time-block to select each time-slot
+//Use dayjs() to get the hour
+//use the time-slot's ID value to determine which class
+//! See #2 in credits for how I found to get just the hour from dayJS
 
+$('.time-block').each(function () {
+  let currentHour = dayjs().hour();
+  console.log("The current hour is " + currentHour);   //check to see if it works
+  //split the ID, take the second half and convert to integer
+  let timeSlotHour = parseInt($(this).attr('id').split('-')[1]);
+  console.log(typeof (timeSlotHour));
 
-
-
-$(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
+  //Check to see if the current hour is greater than, less than, or equal to the time slot and then add the correct class to the row
+  if (timeSlotHour === currentHour) {
+    $(this).addClass("present");
+  } else if (timeSlotHour > currentHour) {
+    $(this).addClass("future");
+  } else {
+    $(this).addClass("past");
+  }
 });
+
+//TODO Need to write code to check if there is anything in local storage and display it in the correct spot, so that if you refresh the page, you will not lose your current entries.  use getItem
+
+
+
+
