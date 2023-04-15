@@ -17,7 +17,7 @@ Here is a link to the deployed site: https://kevincallaghan.github.io/Plan-Your-
 
 To use this Day Planner, simply click on a time-slot, type out whatever you need to remember in the text area, and click the save-icon to save your text.
 
-    ![Screenshot of Planner](assets/images/Screenshot-1.png)
+    ![Planner ScreenShot Example](images/Screenshot-1.png)
 
 
 ## Credits
